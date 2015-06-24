@@ -23,9 +23,25 @@ def main():
         usage()
         sys.exit(1)
     x = list(fp)
-    print len(x)
+    mx = 0
+    mn = 11
+    mxstring = ""
+    mnstring = ""
     for idx, line in enumerate(x):
-        print "%d : %s" % (idx+1, line),
+        tempL = line.split("    ")
+        nota = int(tempL[3])
+        if nota > mx:
+            mxstring = line
+            mx = nota
+        if nota < mn:
+            mnstring = line
+            mn = nota
+        #print tempL
+    print mxstring
+    print mnstring
+#    print len(x)
+#    for idx, line in enumerate(x):
+#        print "%d : %s" % (idx+1, line),
 
 
 if __name__ == "__main__":
